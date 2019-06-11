@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{params['blog_name']}}</h1>
+            <span class="subheading">{{params['tag_line']}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <style type="text/css">
+    .padded{
+      padding-left: 400px;
+    padding-right: 400px;
+    }
+    .btn-lg {
+    font-size: 16px;
+    padding: 14px 1px;
+}
+
+  </style>
+  <!-- Main Content -->
+  
+  <div class="text-center padded">
+    <form class="form-signin" action="/login" method="post">
+  <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Admin Login</h1>
+  <label for="uname" class="sr-only">Username</label>
+  <input type="text" id="uname" name="uname" class="form-control" placeholder="Username" required autofocus>
+  <label for="pass" class="sr-only">Password</label>
+  <br>
+  <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; {{params['blog_name']}} 2018-2019</p>
+</form>
+</div>
+
+
+{% endblock %}  

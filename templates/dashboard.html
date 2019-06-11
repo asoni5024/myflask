@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Welcome To Admin Panel</h1>
+            <span class="subheading">Manage Your Posts And Accounts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+        
+
+<div class="container">
+  <div class="clearfix">
+          <a class="btn btn-primary float-left" href="/edit/0">Add Post &rarr;</a>
+          <a class="btn btn-primary float-right" href="/logout">&larr; Logout</a>
+           </div><hr>
+           <b>Upload A File</b><br>
+           <form action="/upload" method="post" enctype="multipart/form-data">
+             <input type="file" name="file1">
+             <button type="submit" class="btn btn-primary float-right">Upload</button>
+           </form><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>SNo.</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for post in posts %}
+      <tr>
+        <td> {{post.srno}}</td>
+        <td> {{post.title}}</td>
+        <td> {{post.date}}</td>
+        <td><a href="/edit/{{post.srno}}"><button class="btn btn-primary">Edit</button></a></td>
+        <td><a href="/delete/{{post.srno}}"><button class="btn btn-primary">Delete</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+ 
+{% endblock %}  

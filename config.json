@@ -1,0 +1,23 @@
+{
+
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/codingthunder",
+    "prod_uri": "mysql://root:@localhost/codingthunder",
+    "fb_url": "https://facebook.com/codinghunter",
+    "tw_url": "https://twitter.com/codinghunter",
+    "gh_url": "https://github.com/codinghunter",
+    "blog_name": "Coding Hunter",
+    "tag_line": "A blog liked by Programmers",
+    "gmail-user": "asoni1814@gmail.com" ,
+    "gmail-password": "angelgupta",
+    "about_text": "Hii My name is Aman And I am a beginner in the framework of python.",
+    "no_of_post":3 ,
+    "admin_user": "aman@123",
+    "admin_password": "1234567890",
+    "upload_location": "C:\\Users\\ama\\PycharmProjects\\PythonFlask\\static"
+  }
+
+
+}
