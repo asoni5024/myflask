@@ -105,6 +105,7 @@ def upload():
 
 @app.route("/online")
 def online():
+    return render_template('online.html', params=params)
     # if __name__ == '__main__':
     #     if __name__ == '__main__':
     #         import requests
@@ -122,7 +123,7 @@ def online():
 
 
 
-    return render_template('online.html', params=params)
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def dashboard():
@@ -175,7 +176,7 @@ def edit(srno):
                 db.session.commit()
                 return redirect('/edit/'+srno)
         post = Posts.query.filter_by(srno=srno).first()
-        return render_template('edit.html', params=params, post=post)
+        return render_template('edit.html', params=params, post=post, srno=srno)
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
