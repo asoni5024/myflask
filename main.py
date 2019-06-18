@@ -5,6 +5,7 @@ from flask_mail import Mail
 import json
 import os
 import math
+import requests
 from datetime import datetime
 
 
@@ -105,23 +106,29 @@ def upload():
 
 @app.route("/online")
 def online():
-    return render_template('online.html', params=params)
-    # if __name__ == '__main__':
-    #     if __name__ == '__main__':
-    #         import requests
-    #         import json
-    #         url = ('https://newsapi.org/v2/top-headlines?'
-    #                'sources=bbc-sport&'
-    #                'apiKey=22a1c774386d4ea48cd7344a8a2a3e95')
-    #
-    #         response = requests.get(url)
-    #         text = response.text
-    #         my_json = json.loads(text)
-    #         for i in range(1, 11):
-    #
-    #             print(my_json['articles'][i]['title'])
+
+    def NewsFromBBC():
+
+        # BBC news api
+        main_url = " https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=4dbc17e007ab436fb66416009dfb59a8"
+
+        # fetching data in json format
+        open_bbc_page = requests.get(main_url).json()
+
+        # getting all articles in a string article
+        article = open_bbc_page["articles"]
+
+        # empty list which will
+        # contain all trending news
+        results = []
+
+        for ar in article:
+            results.append(ar)
+
+        return results
 
 
+    return render_template('online.html', params=params,results = NewsFromBBC())
 
 
 
